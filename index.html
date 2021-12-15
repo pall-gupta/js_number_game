@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Game</title>
+  </head>
+  <body>
+    <h2>Number guessing game</h2>
+    <p>
+      We have selected a random number between 1 and 100. See if you can guess
+      it in 10 turns or fewer. We'll tell you if your guess was too high or too
+      low.
+    </p>
+    <div>
+      <label>Enter a Guess</label>
+      <input type="number" id="userInput" />
+      <button id="submitInput" onclick="submitUserInput()">Submit</button>
+      <p>Previous Guess : <span id="previousGuess"></span></p>
+      <p id="guessResult"></p>
+      <button id="restartGame" onclick="restartGame()">Start Again</button>
+    </div>
+  </body>
+  <script>
+    var randomNumber = pickRandomNumber();
+    var counter = 0;
+    function pickRandomNumber() {
+      return Math.round(Math.random() * 100);
+    }
+    var startAgain = (document.getElementById("restartGame").disabled = true);
+    console.log(randomNumber);
+    function submitUserInput() {
+      var userGuess = document.getElementById("userInput");
+      userGuess = userInput.value;
+      if (userGuess == "") {
+        userGuess = 0;
+      }
+      console.log(userGuess);
+      var printUserGuess = document.getElementById("previousGuess");
+      previousGuess.innerText += " " + userGuess;
+      counter++;
+      userInput.value = "";
+      if (counter === 10) {
+        console.log("Counter is 10");
+        document.getElementById("restartGame").disabled = false;
+        document.getElementById("submitInput").disabled = true;
+      }
+    }
+    function restartGame() {
+      counter = 0;
+      var printUserGuess = document.getElementById("previousGuess");
+      previousGuess.innerText = " ";
+      randomNumber = pickRandomNumber();
+      console.log(randomNumber);
+      document.getElementById("restartGame").disabled = true;
+      document.getElementById("submitInput").disabled = false;
+    }
+    // var printGuessResult = document.getElementById(guessResult);
+    // printGuessResult = guessResult.innerText = printGuessResult(message);
+    // console.log(printGuessResult);
+    // function printGuessResult(message) {
+    //   if (userGuess == randomNumber) {
+    //     return "Congratulations! You got it right!";
+    //   }
+    //   if (userGuess <= randomNumber) {
+    //     return "Last guess was too low!";
+    //   }
+    //   if (userGuess >= randomNumber) {
+    //     return "Last guess was too High!";
+    //   }
+    // }
+  </script>
+</html>
