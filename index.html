@@ -56,19 +56,20 @@
       document.getElementById("restartGame").disabled = true;
       document.getElementById("submitInput").disabled = false;
     }
-    // var printGuessResult = document.getElementById(guessResult);
-    // printGuessResult = guessResult.innerText = printGuessResult(message);
-    // console.log(printGuessResult);
-    // function printGuessResult(message) {
-    //   if (userGuess == randomNumber) {
-    //     return "Congratulations! You got it right!";
-    //   }
-    //   if (userGuess <= randomNumber) {
-    //     return "Last guess was too low!";
-    //   }
-    //   if (userGuess >= randomNumber) {
-    //     return "Last guess was too High!";
-    //   }
-    // }
+    function printGuessResult(message) {
+      var userGuess = document.getElementById("userInput").value;
+      if (userGuess == randomNumber) {
+        console.log("win");
+        return "Congratulations! You got it right!";
+      }
+      if (userGuess <= randomNumber) {
+        console.log("low");
+        return "Last guess was too low!";
+      }
+      if (userGuess >= randomNumber) {
+        console.log("high");
+        return "Last guess was too High!";
+      }
+    }
   </script>
 </html>
