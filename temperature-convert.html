@@ -8,26 +8,45 @@
   </head>
   <body>
     <div>
-      <input
-        type="number"
-        id="enterTemp"
-        placeholder="Enter temprature in Celsius "
-        style="width: 200px"
-      />
-      <button id="convert" onclick="getTemprature()">
-        Convert to Fahrenheit
-      </button>
-      <p id="convertedTemp"></p>
+      <select id="tempType">
+        <option id="0" selected>Select temprature type to convert</option>
+        <option id="1">Celcius</option>
+        <option id="2">Fahrenheit</option>
+      </select>
+      <br />
+      <br />
+
+      <div id="tempConvert">
+        <input
+          type="number"
+          id="enterTemp"
+          placeholder="Enter temprature in Celsius "
+          style="width: 200px"
+        />
+        <button id="convert" onclick="getTemprature()">Convert</button>
+        <p id="convertedTemp"></p>
+      </div>
     </div>
   </body>
   <script>
     function getTemprature() {
       var celTemp = document.getElementById("enterTemp");
       celTemp = enterTemp.value;
+      celiusTemp = ((celTemp - 32) * 5) / 9;
+      console.log(celiusTemp);
       fahTemp = (celTemp * 9) / 5 + 32;
       console.log(fahTemp);
       var printTemp = document.getElementById("convertedTemp");
-      convertedTemp.innerText = fahTemp + " " + "Fahrenheit";
+      convertedTemp.innerText =
+        enterTemp.value +
+        "\xB0C is " +
+        fahTemp +
+        "\xB0F" +
+        " and " +
+        enterTemp.value +
+        "\xB0F is " +
+        celiusTemp +
+        "'\xB0C";
     }
   </script>
 </html>
