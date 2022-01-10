@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tempreature Convertor</title>
   </head>
+  <style>
+    #tempConvert {
+      display: none;
+    }
+  </style>
   <body>
     <div>
       <select id="tempType">
-        <option id="0" selected>Select temprature type to convert</option>
-        <option id="1">Celcius</option>
-        <option id="2">Fahrenheit</option>
+        <option id="0" value="none" selected>
+          Select temprature type to convert
+        </option>
+        <option id="1" value="CtoF">Celcius to Fahrenheit</option>
+        <option id="2" value="FtoC">Fahrenheit to Celcius</option>
       </select>
       <br />
       <br />
-
+      <p id="selectTempType"></p>
       <div id="tempConvert">
         <input
           type="number"
           id="enterTemp"
-          placeholder="Enter temprature in Celsius "
+          placeholder=""
           style="width: 200px"
         />
         <button id="convert" onclick="getTemprature()">Convert</button>
@@ -29,6 +36,24 @@
     </div>
   </body>
   <script>
+    var tempPlaceholder = document.getElementById("tempType");
+    tempPlaceholder.addEventListener("change", function () {
+      if (tempPlaceholder.value === "CtoF") {
+        document.getElementById("tempConvert").style.display = "block";
+        document.getElementById("selectTempType").style.display = "none";
+        document.getElementById("enterTemp").placeholder =
+          "Enter temprature in Celsius ";
+      } else if (tempPlaceholder.value === "FtoC") {
+        document.getElementById("tempConvert").style.display = "block";
+        document.getElementById("selectTempType").style.display = "none";
+        document.getElementById("enterTemp").placeholder =
+          "Enter temprature in Fahrenheit ";
+      } else {
+        document.getElementById("selectTempType").innerText =
+          "Please select Tempreature type";
+        document.getElementById("tempConvert").style.display = "none";
+      }
+    });
     function getTemprature() {
       var celTemp = document.getElementById("enterTemp");
       celTemp = enterTemp.value;
