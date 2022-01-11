@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Return First String</title>
+  </head>
+  <body>
+    <input type="text" id="enterString" placeholder="Enter Any String" />
+    <button id="submitString" onclick="submittedString()">Submit</button>
+    <p id="enteredString"></p>
+  </body>
+  <script>
+    var getString = document.getElementById("enterString");
+    function submittedString() {
+      if (getString.value === "") {
+        document.getElementById("enteredString").innerText =
+          "Please Enter String";
+      } else {
+        var userString = getString.value;
+        var splitString = userString.split(" ");
+        document.getElementById("enteredString").innerText = splitString[0];
+      }
+    }
+  </script>
+</html>
