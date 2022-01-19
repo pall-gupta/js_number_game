@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of Inputs</title>
+  </head>
+  <body>
+    <input type="number" id="input1" />
+    <input type="number" id="input2" />
+    <input type="number" id="input3" />
+    <input type="number" id="input4" />
+    <p>Sum of <span id="total"></span></p>
+  </body>
+  <script>
+    // var total = 0;
+    var total = document.getElementById('total');
+    var getInput1 = document.getElementById('input1');
+    var getInput2 = document.getElementById('input2');
+    var getInput3 = document.getElementById('input3');
+    var getInput4 = document.getElementById('input4');
+
+    getInput1.addEventListener('keyup', function () {
+      sumOfInputs('1');
+      console.log();
+    });
+    getInput2.addEventListener('keyup', function () {
+      sumOfInputs('2');
+    });
+    getInput3.addEventListener('keyup', function () {
+      sumOfInputs('3');
+    });
+    getInput4.addEventListener('keyup', function () {
+      sumOfInputs('4');
+    });
+
+    function sumOfInputs(getInput) {
+      total.innerText =
+        +getInput1.value +
+        +getInput2.value +
+        +getInput3.value +
+        +getInput4.value;
+      console.log(getInput);
+     
+      if (total.innerText > 100) {
+        console.log('Count is greater than 100');
+        if (getInput === '1') {
+        console.log(getInput1);
+        getInput1.disabled = false;
+        getInput2.disabled = true;
+        getInput3.disabled = true;
+        getInput4.disabled = true;
+      } else if (getInput === '2') {
+        console.log(getInput2);
+        getInput2.disabled = false;
+        getInput1.disabled = true;
+        getInput3.disabled = true;
+        getInput4.disabled = true;
+      }
+      if (getInput === '3') {
+        console.log(getInput3);
+        getInput3.disabled = false;
+        getInput1.disabled = true;
+        getInput2.disabled = true;
+        getInput4.disabled = true;
+      } else if (getInput === '4') {
+        console.log(getInput4);
+        getInput4.disabled = false;
+        getInput1.disabled = true;
+        getInput2.disabled = true;
+        getInput3.disabled = true;
+      }
+      } else {
+        console.log('Less than 100');
+        getInput4.disabled = false;
+        getInput1.disabled = false;
+        getInput2.disabled = false;
+        getInput3.disabled = false;
+      }
+    }
+  </script>
+</html>
