@@ -90,13 +90,9 @@
       var todayTodo = document.getElementById("enterTodo").value;
       document.getElementById("enteredTodo").innerText = todayTodo;
       document.getElementById("enterTodo").value = "";
-      // li.appendChild(todayTodo);
-      // if (todayTodo === "") {
-      //   alert("You must write something!");
-      // } else {
-      //   document.getElementById("todoList").appendChild(li);
-      // }
-      console.log(todayTodo);
+      const todos = [];
+      todos.push(todayTodo);
+      console.log(todos);
     }
   </script>
 </html>
